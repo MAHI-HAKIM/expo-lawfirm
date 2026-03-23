@@ -66,3 +66,21 @@ It eliminates the need for hardcoded websites by providing a fully composable, C
 ---
 ## 📁 Project Structure
 
+expolaw/
+│
+├── frontend/ # Next.js application
+│ ├── components/ # Reusable UI components
+│ ├── pages/ # Route-based pages
+│ ├── services/ # API calls
+│ └── styles/
+│
+├── backend/ # Django application
+│ ├── apps/ # Modular Django apps
+│ ├── models/ # Database models
+│ ├── api/ # DRF serializers & views
+│ └── settings/
+│
+├── docker-compose.yml
+├── Dockerfile
+└── .env
+
