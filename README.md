@@ -66,21 +66,79 @@ It eliminates the need for hardcoded websites by providing a fully composable, C
 ---
 ## 📁 Project Structure
 
-expolaw/
-│
-├── frontend/ # Next.js application
-│ ├── components/ # Reusable UI components
-│ ├── pages/ # Route-based pages
-│ ├── services/ # API calls
-│ └── styles/
-│
-├── backend/ # Django application
-│ ├── apps/ # Modular Django apps
-│ ├── models/ # Database models
-│ ├── api/ # DRF serializers & views
-│ └── settings/
-│
-├── docker-compose.yml
-├── Dockerfile
-└── .env
+---
+
+## 📡 API Overview
+
+| Endpoint        | Description            |
+|----------------|------------------------|
+| /api/pages/    | Get all pages          |
+| /api/sections/ | Get page sections      |
+| /api/content/  | Dynamic content blocks |
+
+---
+
+## 🧱 Architecture
+
+Expolaw follows a headless CMS architecture:
+
+- Backend (Django) manages structured content  
+- Frontend (Next.js) renders pages dynamically  
+- Pages are built from modular, reusable sections  
+
+This allows:
+- Easy scaling  
+- Multi-client support (future SaaS expansion)  
+- Flexible UI composition  
+
+---
+
+## 💡 Use Cases
+
+- Law firm websites  
+- Legal consultancy landing pages  
+- Multi-client SaaS platform for agencies  
+- White-label website builder  
+
+---
+
+## 🛣️ Roadmap
+
+- Drag-and-drop visual builder  
+- Multi-tenant SaaS support  
+- Stripe subscription integration  
+- Role-based team access  
+- SEO optimization tools  
+- Analytics dashboard  
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork the repository  
+2. Create a feature branch  
+3. Commit your changes  
+4. Open a pull request  
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+## 👤 Author
+
+Mahi Hakim  
+Full-stack developer focused on building scalable SaaS products.
+
+---
+
+## 🌟 Vision
+
+Expolaw aims to become a Webflow alternative for law firms, enabling anyone to launch high-quality legal websites without technical complexity.
+
 
