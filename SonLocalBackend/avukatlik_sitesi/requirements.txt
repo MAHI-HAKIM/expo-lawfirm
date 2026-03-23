@@ -1,0 +1,11 @@
+Django >= 4.2;
+psycopg2-binary;
+gunicorn
+djangorestframework;
+djangorestframework-simplejwt;
+python-decouple;
+
+drf-spectacular;
+
+
+django-cors-headers==4.3.1

@@ -1,0 +1,48 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: lawfirm_db
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin123
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    command: postgres -c ssl=off
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "admin", "-d", "lawfirm_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build:
+      context: ./Backend/avukatlik_sitesi
+    container_name: django_backend
+    volumes:
+      - ./Backend/avukatlik_sitesi:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - ./Backend/avukatlik_sitesi/.env
+
+  frontend:
+    build:
+      context: ./frontend # Adjust this to your frontend directory
+    container_name: next_frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://django_backend:8000
+    depends_on:
+      - web
+
+volumes:
+  postgres_data:
